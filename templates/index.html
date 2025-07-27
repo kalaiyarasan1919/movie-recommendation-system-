@@ -94,7 +94,7 @@
     </form>
     
     {% if recommendations %}
-        <h2>Recommended Movies:</h2>
+        <h2>Recommended Movies ({{ recommendations|length }} found):</h2>
         <div class="movie-container">
             {% for rec in recommendations %}
                 <div class="movie-card">
@@ -103,6 +103,9 @@
                 </div>
             {% endfor %}
         </div>
+    {% else %}
+        <h2>No recommendations found</h2>
+        <p>Try: Drama, Crime, or Action</p>
     {% endif %}
 </body>
 </html>

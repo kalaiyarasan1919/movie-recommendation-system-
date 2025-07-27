@@ -12,7 +12,10 @@ test_movies = [
 ]
 
 def filter_by_genre(genre):
-    return [movie for movie in test_movies if genre.lower() in movie["genre"].lower()]
+    filtered = [movie for movie in test_movies if genre.lower() in movie["genre"].lower()]
+    print(f"Filtering for genre '{genre}': found {len(filtered)} movies")
+    print(f"Available genres: {list(set([movie['genre'] for movie in test_movies]))}")
+    return filtered
 
 def recommend_by_genre(genre):
     filtered_movies = filter_by_genre(genre)
@@ -36,9 +39,10 @@ def index():
     recommendations = []
     if request.method == 'POST':
         genre = request.form['genre']
+        print(f"Received genre: '{genre}'")
         recommendations = recommend_by_genre(genre)
-        # Debug: print recommendations to see what's being passed
-        print(f"Recommendations: {recommendations}")
+        print(f"Final recommendations: {recommendations}")
+        print(f"Type of recommendations: {type(recommendations)}")
     return render_template('index.html', recommendations=recommendations)
 
 # Test route to verify data
@@ -46,6 +50,17 @@ def index():
 def test():
     test_recs = recommend_by_genre('Drama')
     return {'recommendations': test_recs}
+
+# Debug route to show all movies
+@app.route('/debug')
+def debug():
+    return {
+        'all_movies': test_movies,
+        'available_genres': list(set([movie['genre'] for movie in test_movies])),
+        'drama_movies': recommend_by_genre('Drama'),
+        'crime_movies': recommend_by_genre('Crime'),
+        'action_movies': recommend_by_genre('Action')
+    }
 
 # For deployment
 app.debug = True

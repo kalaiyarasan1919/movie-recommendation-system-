@@ -1,41 +1,34 @@
 from flask import Flask, render_template, request
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
-# Load the dataset
-df = pd.read_csv('static/imdb_top_1000.csv')
+# Simple test data instead of CSV
+test_movies = [
+    {"title": "The Shawshank Redemption", "genre": "Drama", "rating": 9.3, "poster": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNDAwMjU5NjY@._V1_.jpg"},
+    {"title": "The Godfather", "genre": "Crime", "rating": 9.2, "poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxOWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"},
+    {"title": "Pulp Fiction", "genre": "Crime", "rating": 8.9, "poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"},
+    {"title": "Fight Club", "genre": "Drama", "rating": 8.8, "poster": "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg"},
+    {"title": "Inception", "genre": "Action", "rating": 8.8, "poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg"},
+]
 
-def filter_by_genre(df, genre):
-    return df[df['Genre'].str.contains(genre, case=False, na=False)]
+def filter_by_genre(genre):
+    return [movie for movie in test_movies if genre.lower() in movie["genre"].lower()]
 
-def highest_rated_movie(genre_filtered):
-    highest_rated = genre_filtered.loc[genre_filtered['IMDB_Rating'].idxmax()]
-    return highest_rated['Series_Title'], highest_rated['IMDB_Rating']
-
-def recommend_by_genre(genres):
-    genre_filtered_df = filter_by_genre(df, genres)
-    if genre_filtered_df.empty:
-        return f"No movies found for the genre: {genres}"
-
-    tfidf = TfidfVectorizer(stop_words='english')
-    tfidf_matrix = tfidf.fit_transform(df['Overview'])
+def recommend_by_genre(genre):
+    filtered_movies = filter_by_genre(genre)
+    if not filtered_movies:
+        return f"No movies found for the genre: {genre}"
     
-    similarity = cosine_similarity(tfidf_matrix)
-
-    random_movie_index = genre_filtered_df.index[0]
-    distances = sorted(list(enumerate(similarity[random_movie_index])), reverse=True, key=lambda x: x[1])
-
+    # Return top 5 by rating
+    sorted_movies = sorted(filtered_movies, key=lambda x: x["rating"], reverse=True)[:5]
+    
     recommendations = []
-    for i in distances[1:6]:
-        movie = df.iloc[i[0]]
+    for movie in sorted_movies:
         recommendations.append({
-            'title': movie['Series_Title'],
-            'poster': movie['Poster_Link']
+            'title': movie['title'],
+            'poster': movie['poster']
         })
-
+    
     return recommendations
 
 @app.route('/', methods=['GET', 'POST'])
@@ -46,8 +39,8 @@ def index():
         recommendations = recommend_by_genre(genre)
     return render_template('index.html', recommendations=recommendations)
 
-# For Vercel deployment
+# For deployment
 app.debug = True
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 

@@ -46,5 +46,8 @@ def index():
         recommendations = recommend_by_genre(genre)
     return render_template('index.html', recommendations=recommendations)
 
+# For Vercel deployment
+app.debug = True
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,8 +2,10 @@ services:
   - type: web
     name: movie-recommendation-system
     env: python
-    buildCommand: pip install -r requirements-basic.txt
-    startCommand: gunicorn app-simple:app
+    buildCommand: pip install -r requirements-minimal.txt
+    startCommand: gunicorn app-test:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.16 
+        value: 3.9.16
+      - key: PYTHONUNBUFFERED
+        value: "1" 

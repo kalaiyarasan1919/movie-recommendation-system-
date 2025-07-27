@@ -17,7 +17,7 @@ def filter_by_genre(genre):
 def recommend_by_genre(genre):
     filtered_movies = filter_by_genre(genre)
     if not filtered_movies:
-        return f"No movies found for the genre: {genre}"
+        return []  # Return empty list instead of string
     
     # Return top 5 by rating
     sorted_movies = sorted(filtered_movies, key=lambda x: x["rating"], reverse=True)[:5]
@@ -25,8 +25,8 @@ def recommend_by_genre(genre):
     recommendations = []
     for movie in sorted_movies:
         recommendations.append({
-            'title': movie['title'],
-            'poster': movie['poster']
+            'title': str(movie['title']),  # Ensure it's a string
+            'poster': str(movie['poster'])  # Ensure it's a string
         })
     
     return recommendations
@@ -37,7 +37,15 @@ def index():
     if request.method == 'POST':
         genre = request.form['genre']
         recommendations = recommend_by_genre(genre)
+        # Debug: print recommendations to see what's being passed
+        print(f"Recommendations: {recommendations}")
     return render_template('index.html', recommendations=recommendations)
+
+# Test route to verify data
+@app.route('/test')
+def test():
+    test_recs = recommend_by_genre('Drama')
+    return {'recommendations': test_recs}
 
 # For deployment
 app.debug = True

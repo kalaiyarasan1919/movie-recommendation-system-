@@ -5,68 +5,68 @@ app = Flask(__name__)
 # Expanded test data with more movies and genres - Updated with reliable poster URLs
 test_movies = [
     # Drama Movies
-    {"title": "The Shawshank Redemption", "genre": "Drama", "rating": 9.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Shawshank+Redemption"},
-    {"title": "The Godfather", "genre": "Drama", "rating": 9.2, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Godfather"},
-    {"title": "Fight Club", "genre": "Drama", "rating": 8.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Fight+Club"},
-    {"title": "Forrest Gump", "genre": "Drama", "rating": 8.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Forrest+Gump"},
-    {"title": "The Green Mile", "genre": "Drama", "rating": 8.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Green+Mile"},
-    {"title": "Goodfellas", "genre": "Drama", "rating": 8.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Goodfellas"},
+    {"title": "The Shawshank Redemption", "genre": "Drama", "rating": 9.3, "poster": "https://picsum.photos/300/450?random=1"},
+    {"title": "The Godfather", "genre": "Drama", "rating": 9.2, "poster": "https://picsum.photos/300/450?random=2"},
+    {"title": "Fight Club", "genre": "Drama", "rating": 8.8, "poster": "https://picsum.photos/300/450?random=3"},
+    {"title": "Forrest Gump", "genre": "Drama", "rating": 8.8, "poster": "https://picsum.photos/300/450?random=4"},
+    {"title": "The Green Mile", "genre": "Drama", "rating": 8.6, "poster": "https://picsum.photos/300/450?random=5"},
+    {"title": "Goodfellas", "genre": "Drama", "rating": 8.7, "poster": "https://picsum.photos/300/450?random=6"},
     
     # Crime Movies
-    {"title": "Pulp Fiction", "genre": "Crime", "rating": 8.9, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Pulp+Fiction"},
-    {"title": "The Departed", "genre": "Crime", "rating": 8.5, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Departed"},
-    {"title": "Heat", "genre": "Crime", "rating": 8.2, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Heat"},
-    {"title": "Scarface", "genre": "Crime", "rating": 8.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Scarface"},
-    {"title": "The Usual Suspects", "genre": "Crime", "rating": 8.5, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Usual+Suspects"},
-    {"title": "Reservoir Dogs", "genre": "Crime", "rating": 8.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Reservoir+Dogs"},
+    {"title": "Pulp Fiction", "genre": "Crime", "rating": 8.9, "poster": "https://picsum.photos/300/450?random=7"},
+    {"title": "The Departed", "genre": "Crime", "rating": 8.5, "poster": "https://picsum.photos/300/450?random=8"},
+    {"title": "Heat", "genre": "Crime", "rating": 8.2, "poster": "https://picsum.photos/300/450?random=9"},
+    {"title": "Scarface", "genre": "Crime", "rating": 8.3, "poster": "https://picsum.photos/300/450?random=10"},
+    {"title": "The Usual Suspects", "genre": "Crime", "rating": 8.5, "poster": "https://picsum.photos/300/450?random=11"},
+    {"title": "Reservoir Dogs", "genre": "Crime", "rating": 8.3, "poster": "https://picsum.photos/300/450?random=12"},
     
     # Action Movies
-    {"title": "Inception", "genre": "Action", "rating": 8.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Inception"},
-    {"title": "The Dark Knight", "genre": "Action", "rating": 9.0, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Dark+Knight"},
-    {"title": "Mad Max: Fury Road", "genre": "Action", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Mad+Max+Fury+Road"},
-    {"title": "John Wick", "genre": "Action", "rating": 7.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=John+Wick"},
-    {"title": "Mission: Impossible", "genre": "Action", "rating": 7.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Mission+Impossible"},
-    {"title": "Die Hard", "genre": "Action", "rating": 8.2, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Die+Hard"},
+    {"title": "Inception", "genre": "Action", "rating": 8.8, "poster": "https://picsum.photos/300/450?random=13"},
+    {"title": "The Dark Knight", "genre": "Action", "rating": 9.0, "poster": "https://picsum.photos/300/450?random=14"},
+    {"title": "Mad Max: Fury Road", "genre": "Action", "rating": 8.1, "poster": "https://picsum.photos/300/450?random=15"},
+    {"title": "John Wick", "genre": "Action", "rating": 7.4, "poster": "https://picsum.photos/300/450?random=16"},
+    {"title": "Mission: Impossible", "genre": "Action", "rating": 7.1, "poster": "https://picsum.photos/300/450?random=17"},
+    {"title": "Die Hard", "genre": "Action", "rating": 8.2, "poster": "https://picsum.photos/300/450?random=18"},
     
     # Romance Movies
-    {"title": "Titanic", "genre": "Romance", "rating": 7.9, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Titanic"},
-    {"title": "The Notebook", "genre": "Romance", "rating": 7.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Notebook"},
-    {"title": "La La Land", "genre": "Romance", "rating": 8.0, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=La+La+Land"},
-    {"title": "500 Days of Summer", "genre": "Romance", "rating": 7.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=500+Days+of+Summer"},
-    {"title": "Eternal Sunshine of the Spotless Mind", "genre": "Romance", "rating": 8.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Eternal+Sunshine"},
-    {"title": "Before Sunrise", "genre": "Romance", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Before+Sunrise"},
+    {"title": "Titanic", "genre": "Romance", "rating": 7.9, "poster": "https://picsum.photos/300/450?random=19"},
+    {"title": "The Notebook", "genre": "Romance", "rating": 7.8, "poster": "https://picsum.photos/300/450?random=20"},
+    {"title": "La La Land", "genre": "Romance", "rating": 8.0, "poster": "https://picsum.photos/300/450?random=21"},
+    {"title": "500 Days of Summer", "genre": "Romance", "rating": 7.7, "poster": "https://picsum.photos/300/450?random=22"},
+    {"title": "Eternal Sunshine of the Spotless Mind", "genre": "Romance", "rating": 8.3, "poster": "https://picsum.photos/300/450?random=23"},
+    {"title": "Before Sunrise", "genre": "Romance", "rating": 8.1, "poster": "https://picsum.photos/300/450?random=24"},
     
     # Horror Movies
-    {"title": "The Shining", "genre": "Horror", "rating": 8.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Shining"},
-    {"title": "A Nightmare on Elm Street", "genre": "Horror", "rating": 7.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Nightmare+on+Elm+Street"},
-    {"title": "Halloween", "genre": "Horror", "rating": 7.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Halloween"},
-    {"title": "The Exorcist", "genre": "Horror", "rating": 8.0, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Exorcist"},
-    {"title": "Alien", "genre": "Horror", "rating": 8.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Alien"},
-    {"title": "The Silence of the Lambs", "genre": "Horror", "rating": 8.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Silence+of+the+Lambs"},
+    {"title": "The Shining", "genre": "Horror", "rating": 8.4, "poster": "https://picsum.photos/300/450?random=25"},
+    {"title": "A Nightmare on Elm Street", "genre": "Horror", "rating": 7.4, "poster": "https://picsum.photos/300/450?random=26"},
+    {"title": "Halloween", "genre": "Horror", "rating": 7.7, "poster": "https://picsum.photos/300/450?random=27"},
+    {"title": "The Exorcist", "genre": "Horror", "rating": 8.0, "poster": "https://picsum.photos/300/450?random=28"},
+    {"title": "Alien", "genre": "Horror", "rating": 8.4, "poster": "https://picsum.photos/300/450?random=29"},
+    {"title": "The Silence of the Lambs", "genre": "Horror", "rating": 8.6, "poster": "https://picsum.photos/300/450?random=30"},
     
     # Sci-Fi Movies
-    {"title": "Interstellar", "genre": "Sci-Fi", "rating": 8.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Interstellar"},
-    {"title": "The Matrix", "genre": "Sci-Fi", "rating": 8.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Matrix"},
-    {"title": "Blade Runner", "genre": "Sci-Fi", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Blade+Runner"},
-    {"title": "2001: A Space Odyssey", "genre": "Sci-Fi", "rating": 8.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=2001+Space+Odyssey"},
-    {"title": "Back to the Future", "genre": "Sci-Fi", "rating": 8.5, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Back+to+the+Future"},
-    {"title": "E.T. the Extra-Terrestrial", "genre": "Sci-Fi", "rating": 7.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=E.T.+Extra+Terrestrial"},
+    {"title": "Interstellar", "genre": "Sci-Fi", "rating": 8.6, "poster": "https://picsum.photos/300/450?random=31"},
+    {"title": "The Matrix", "genre": "Sci-Fi", "rating": 8.7, "poster": "https://picsum.photos/300/450?random=32"},
+    {"title": "Blade Runner", "genre": "Sci-Fi", "rating": 8.1, "poster": "https://picsum.photos/300/450?random=33"},
+    {"title": "2001: A Space Odyssey", "genre": "Sci-Fi", "rating": 8.3, "poster": "https://picsum.photos/300/450?random=34"},
+    {"title": "Back to the Future", "genre": "Sci-Fi", "rating": 8.5, "poster": "https://picsum.photos/300/450?random=35"},
+    {"title": "E.T. the Extra-Terrestrial", "genre": "Sci-Fi", "rating": 7.8, "poster": "https://picsum.photos/300/450?random=36"},
     
     # Comedy Movies
-    {"title": "The Grand Budapest Hotel", "genre": "Comedy", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Grand+Budapest+Hotel"},
-    {"title": "Superbad", "genre": "Comedy", "rating": 7.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Superbad"},
-    {"title": "The Hangover", "genre": "Comedy", "rating": 7.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Hangover"},
-    {"title": "Bridesmaids", "genre": "Comedy", "rating": 6.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Bridesmaids"},
-    {"title": "Shaun of the Dead", "genre": "Comedy", "rating": 7.9, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Shaun+of+the+Dead"},
-    {"title": "The Big Lebowski", "genre": "Comedy", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Big+Lebowski"},
+    {"title": "The Grand Budapest Hotel", "genre": "Comedy", "rating": 8.1, "poster": "https://picsum.photos/300/450?random=37"},
+    {"title": "Superbad", "genre": "Comedy", "rating": 7.6, "poster": "https://picsum.photos/300/450?random=38"},
+    {"title": "The Hangover", "genre": "Comedy", "rating": 7.7, "poster": "https://picsum.photos/300/450?random=39"},
+    {"title": "Bridesmaids", "genre": "Comedy", "rating": 6.8, "poster": "https://picsum.photos/300/450?random=40"},
+    {"title": "Shaun of the Dead", "genre": "Comedy", "rating": 7.9, "poster": "https://picsum.photos/300/450?random=41"},
+    {"title": "The Big Lebowski", "genre": "Comedy", "rating": 8.1, "poster": "https://picsum.photos/300/450?random=42"},
     
     # Thriller Movies
-    {"title": "Gone Girl", "genre": "Thriller", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Gone+Girl"},
-    {"title": "Shutter Island", "genre": "Thriller", "rating": 8.2, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Shutter+Island"},
-    {"title": "Memento", "genre": "Thriller", "rating": 8.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Memento"},
-    {"title": "Se7en", "genre": "Thriller", "rating": 8.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Se7en"},
-    {"title": "Zodiac", "genre": "Thriller", "rating": 7.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Zodiac"},
-    {"title": "The Sixth Sense", "genre": "Thriller", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Sixth+Sense"}
+    {"title": "Gone Girl", "genre": "Thriller", "rating": 8.1, "poster": "https://picsum.photos/300/450?random=43"},
+    {"title": "Shutter Island", "genre": "Thriller", "rating": 8.2, "poster": "https://picsum.photos/300/450?random=44"},
+    {"title": "Memento", "genre": "Thriller", "rating": 8.4, "poster": "https://picsum.photos/300/450?random=45"},
+    {"title": "Se7en", "genre": "Thriller", "rating": 8.6, "poster": "https://picsum.photos/300/450?random=46"},
+    {"title": "Zodiac", "genre": "Thriller", "rating": 7.7, "poster": "https://picsum.photos/300/450?random=47"},
+    {"title": "The Sixth Sense", "genre": "Thriller", "rating": 8.1, "poster": "https://picsum.photos/300/450?random=48"}
 ]
 
 def filter_by_genre(genre):

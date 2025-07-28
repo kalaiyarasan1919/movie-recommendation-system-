@@ -83,18 +83,58 @@
             font-size: 1.2rem;
             margin: 10px 0 0;
         }
+
+        .genres-info {
+            background-color: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .genres-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .genre-tag {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
     <h1>Movie Recommendations by Genre</h1>
+    
+    <div class="genres-info">
+        <h3>Available Genres:</h3>
+        <div class="genres-list">
+            <span class="genre-tag">Drama</span>
+            <span class="genre-tag">Crime</span>
+            <span class="genre-tag">Action</span>
+            <span class="genre-tag">Romance</span>
+            <span class="genre-tag">Horror</span>
+            <span class="genre-tag">Sci-Fi</span>
+            <span class="genre-tag">Comedy</span>
+            <span class="genre-tag">Thriller</span>
+        </div>
+    </div>
+    
     <form method="POST">
         <label for="genre">Enter Genre:</label>
-        <input type="text" id="genre" name="genre" required>
-        <button type="submit">Recommend</button>
+        <input type="text" id="genre" name="genre" placeholder="e.g., Drama, Romance, Horror..." required>
+        <button type="submit">Get Recommendations</button>
     </form>
     
     {% if recommendations %}
-        <h2>Recommended Movies ({{ recommendations|length }} found):</h2>
+        <h2>Top 6 Recommended Movies ({{ recommendations|length }} found):</h2>
         <div class="movie-container">
             {% for rec in recommendations %}
                 <div class="movie-card">
@@ -105,7 +145,7 @@
         </div>
     {% else %}
         <h2>No recommendations found</h2>
-        <p>Try: Drama, Crime, or Action</p>
+        <p>Try one of these genres: Drama, Crime, Action, Romance, Horror, Sci-Fi, Comedy, or Thriller</p>
     {% endif %}
 </body>
 </html>

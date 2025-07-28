@@ -5,68 +5,68 @@ app = Flask(__name__)
 # Expanded test data with more movies and genres - Updated with reliable poster URLs
 test_movies = [
     # Drama Movies
-    {"title": "The Shawshank Redemption", "genre": "Drama", "rating": 9.3, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Godfather", "genre": "Drama", "rating": 9.2, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Fight Club", "genre": "Drama", "rating": 8.8, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Forrest Gump", "genre": "Drama", "rating": 8.8, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Green Mile", "genre": "Drama", "rating": 8.6, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Goodfellas", "genre": "Drama", "rating": 8.7, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
+    {"title": "The Shawshank Redemption", "genre": "Drama", "rating": 9.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Shawshank+Redemption"},
+    {"title": "The Godfather", "genre": "Drama", "rating": 9.2, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Godfather"},
+    {"title": "Fight Club", "genre": "Drama", "rating": 8.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Fight+Club"},
+    {"title": "Forrest Gump", "genre": "Drama", "rating": 8.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Forrest+Gump"},
+    {"title": "The Green Mile", "genre": "Drama", "rating": 8.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Green+Mile"},
+    {"title": "Goodfellas", "genre": "Drama", "rating": 8.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Goodfellas"},
     
     # Crime Movies
-    {"title": "Pulp Fiction", "genre": "Crime", "rating": 8.9, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Departed", "genre": "Crime", "rating": 8.5, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Heat", "genre": "Crime", "rating": 8.2, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Scarface", "genre": "Crime", "rating": 8.3, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Usual Suspects", "genre": "Crime", "rating": 8.5, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Reservoir Dogs", "genre": "Crime", "rating": 8.3, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
+    {"title": "Pulp Fiction", "genre": "Crime", "rating": 8.9, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Pulp+Fiction"},
+    {"title": "The Departed", "genre": "Crime", "rating": 8.5, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Departed"},
+    {"title": "Heat", "genre": "Crime", "rating": 8.2, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Heat"},
+    {"title": "Scarface", "genre": "Crime", "rating": 8.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Scarface"},
+    {"title": "The Usual Suspects", "genre": "Crime", "rating": 8.5, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Usual+Suspects"},
+    {"title": "Reservoir Dogs", "genre": "Crime", "rating": 8.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Reservoir+Dogs"},
     
     # Action Movies
-    {"title": "Inception", "genre": "Action", "rating": 8.8, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Dark Knight", "genre": "Action", "rating": 9.0, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Mad Max: Fury Road", "genre": "Action", "rating": 8.1, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "John Wick", "genre": "Action", "rating": 7.4, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Mission: Impossible", "genre": "Action", "rating": 7.1, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Die Hard", "genre": "Action", "rating": 8.2, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
+    {"title": "Inception", "genre": "Action", "rating": 8.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Inception"},
+    {"title": "The Dark Knight", "genre": "Action", "rating": 9.0, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Dark+Knight"},
+    {"title": "Mad Max: Fury Road", "genre": "Action", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Mad+Max+Fury+Road"},
+    {"title": "John Wick", "genre": "Action", "rating": 7.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=John+Wick"},
+    {"title": "Mission: Impossible", "genre": "Action", "rating": 7.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Mission+Impossible"},
+    {"title": "Die Hard", "genre": "Action", "rating": 8.2, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Die+Hard"},
     
     # Romance Movies
-    {"title": "Titanic", "genre": "Romance", "rating": 7.9, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Notebook", "genre": "Romance", "rating": 7.8, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "La La Land", "genre": "Romance", "rating": 8.0, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "500 Days of Summer", "genre": "Romance", "rating": 7.7, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Eternal Sunshine of the Spotless Mind", "genre": "Romance", "rating": 8.3, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Before Sunrise", "genre": "Romance", "rating": 8.1, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
+    {"title": "Titanic", "genre": "Romance", "rating": 7.9, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Titanic"},
+    {"title": "The Notebook", "genre": "Romance", "rating": 7.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Notebook"},
+    {"title": "La La Land", "genre": "Romance", "rating": 8.0, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=La+La+Land"},
+    {"title": "500 Days of Summer", "genre": "Romance", "rating": 7.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=500+Days+of+Summer"},
+    {"title": "Eternal Sunshine of the Spotless Mind", "genre": "Romance", "rating": 8.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Eternal+Sunshine"},
+    {"title": "Before Sunrise", "genre": "Romance", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Before+Sunrise"},
     
     # Horror Movies
-    {"title": "The Shining", "genre": "Horror", "rating": 8.4, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "A Nightmare on Elm Street", "genre": "Horror", "rating": 7.4, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Halloween", "genre": "Horror", "rating": 7.7, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Exorcist", "genre": "Horror", "rating": 8.0, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Alien", "genre": "Horror", "rating": 8.4, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Silence of the Lambs", "genre": "Horror", "rating": 8.6, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
+    {"title": "The Shining", "genre": "Horror", "rating": 8.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Shining"},
+    {"title": "A Nightmare on Elm Street", "genre": "Horror", "rating": 7.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Nightmare+on+Elm+Street"},
+    {"title": "Halloween", "genre": "Horror", "rating": 7.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Halloween"},
+    {"title": "The Exorcist", "genre": "Horror", "rating": 8.0, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Exorcist"},
+    {"title": "Alien", "genre": "Horror", "rating": 8.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Alien"},
+    {"title": "The Silence of the Lambs", "genre": "Horror", "rating": 8.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Silence+of+the+Lambs"},
     
     # Sci-Fi Movies
-    {"title": "Interstellar", "genre": "Sci-Fi", "rating": 8.6, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Matrix", "genre": "Sci-Fi", "rating": 8.7, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Blade Runner", "genre": "Sci-Fi", "rating": 8.1, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "2001: A Space Odyssey", "genre": "Sci-Fi", "rating": 8.3, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Back to the Future", "genre": "Sci-Fi", "rating": 8.5, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "E.T. the Extra-Terrestrial", "genre": "Sci-Fi", "rating": 7.8, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
+    {"title": "Interstellar", "genre": "Sci-Fi", "rating": 8.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Interstellar"},
+    {"title": "The Matrix", "genre": "Sci-Fi", "rating": 8.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Matrix"},
+    {"title": "Blade Runner", "genre": "Sci-Fi", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Blade+Runner"},
+    {"title": "2001: A Space Odyssey", "genre": "Sci-Fi", "rating": 8.3, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=2001+Space+Odyssey"},
+    {"title": "Back to the Future", "genre": "Sci-Fi", "rating": 8.5, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Back+to+the+Future"},
+    {"title": "E.T. the Extra-Terrestrial", "genre": "Sci-Fi", "rating": 7.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=E.T.+Extra+Terrestrial"},
     
     # Comedy Movies
-    {"title": "The Grand Budapest Hotel", "genre": "Comedy", "rating": 8.1, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Superbad", "genre": "Comedy", "rating": 7.6, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Hangover", "genre": "Comedy", "rating": 7.7, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Bridesmaids", "genre": "Comedy", "rating": 6.8, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Shaun of the Dead", "genre": "Comedy", "rating": 7.9, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Big Lebowski", "genre": "Comedy", "rating": 8.1, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
+    {"title": "The Grand Budapest Hotel", "genre": "Comedy", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Grand+Budapest+Hotel"},
+    {"title": "Superbad", "genre": "Comedy", "rating": 7.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Superbad"},
+    {"title": "The Hangover", "genre": "Comedy", "rating": 7.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Hangover"},
+    {"title": "Bridesmaids", "genre": "Comedy", "rating": 6.8, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Bridesmaids"},
+    {"title": "Shaun of the Dead", "genre": "Comedy", "rating": 7.9, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Shaun+of+the+Dead"},
+    {"title": "The Big Lebowski", "genre": "Comedy", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Big+Lebowski"},
     
     # Thriller Movies
-    {"title": "Gone Girl", "genre": "Thriller", "rating": 8.1, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Shutter Island", "genre": "Thriller", "rating": 8.2, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Memento", "genre": "Thriller", "rating": 8.4, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Se7en", "genre": "Thriller", "rating": 8.6, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "Zodiac", "genre": "Thriller", "rating": 7.7, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"},
-    {"title": "The Sixth Sense", "genre": "Thriller", "rating": 8.1, "poster": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=300&h=450&fit=crop"}
+    {"title": "Gone Girl", "genre": "Thriller", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Gone+Girl"},
+    {"title": "Shutter Island", "genre": "Thriller", "rating": 8.2, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Shutter+Island"},
+    {"title": "Memento", "genre": "Thriller", "rating": 8.4, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Memento"},
+    {"title": "Se7en", "genre": "Thriller", "rating": 8.6, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Se7en"},
+    {"title": "Zodiac", "genre": "Thriller", "rating": 7.7, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=Zodiac"},
+    {"title": "The Sixth Sense", "genre": "Thriller", "rating": 8.1, "poster": "https://via.placeholder.com/300x450/1f2937/ffffff?text=The+Sixth+Sense"}
 ]
 
 def filter_by_genre(genre):
